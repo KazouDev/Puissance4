@@ -1,0 +1,105 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+fonction creeGrille
+Initialise et retourne un tableau de type t_grille, rempli de 0.
+
+paramètres
+Aucun
+
+résultat
+t_grille, rempli de 0.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+fonction verifVictoire
+Verifie si une victoire ou une fin de partie à lieu et retourne un entier en fonction du status de la partie.
+
+paramètre
+grille (Entrée) : t_grille, grille du jeux.
+
+résultat
+entier, 0 si la partie n'est pas terminé, 1 si le joueur 1 gagne, 2 si le joueur 2 gagne, 3 si il y a une égalité (grille pleine).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+fonction verifColonne
+Verifie si une colonne passé en paramètre est valide et retourne un entier en fonction du résultat.
+
+paramètre
+colonne (Entrée) : entier, numéro de la colonne.
+
+résultat
+entier, 0 si la colonne est valide, 1 si elle est pleine, 2 si elle est en dehors des valeurs de la grille.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+fonction changementJoueur
+Retourne le numéro du joueur qui doit jouer en fonction du numéro du joueur qui joue actuellement passé en paramètre.
+
+paramètre
+joueur (Entrée) : entier, joueur qui joue actuellement.
+
+résultat
+entier, numéro du joueur qui doit jouer actuellement.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+procedure afficherRegles
+Affiche les régles du jeux
+
+paramètre
+Aucun
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+procedure afficherGrille
+Affiche la grille en remplacant les 1 et 2 par les pions repsectivement indiqué dans les constantes PION_J1 et PION_J2.
+
+paramètre
+grille (Entrée) : t_grille, grille du jeux.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+procedure afficherFin
+Affiche un message de fin de partie en fonction du paramètre type_fin (entier) passé en paramètre, 1: victoire du joueur 1, 2 victoire du joueur 2 et 3: égalité.
+
+paramètre
+type_fin (Entrée) : entier, résultat de la fonction verifVictoire() (1: victoire du joueur 1, 2: victoire du joueur 2, 3: égalité (grille pleine).)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+procedure jouer
+Fait jouer le joueur passez en paramètre (Choix de la colonne, vérification, positionnement du pion dans la grille).
+
+paramètre
+joueur (Entrée) : entier, joueur qui doit jouer.
+grille (Entrée/Sortie) : t_grille, grille du jeux.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+procedure placerPionColonne
+Détermine la ligne à laquelle doit être placé un pion en fonction de sa colonne puis appel la procedure placerPion()
+
+parametre
+colonne (Entrée) : entier, colonne dans laquelle on souhaite placé un pion.
+joueur (Entrée) : entier, joueur qui souhaite placé le pion.
+grille (Entrée/Sortie) : t_grille, grille du jeux.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+procedure placerPion
+Place un pion du joueur passé en paramètre dans la grille, à la ligne et colonne, passé en paramètre.
+
+parametre
+ligne (Entrée) : entier, ligne dans laquelle on souhaite placé un pion.
+colonne (Entrée) : entier, colonne dans laquelle on souhaite placé un pion.
+joueur (Entrée) : entier, joueur qui souhaite placé le pion.
+grille (Entrée/Sortie) : t_grille, grille du jeux.

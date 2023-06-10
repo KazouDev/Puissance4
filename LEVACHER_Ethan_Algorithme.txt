@@ -1,0 +1,50 @@
+programme puissance4 c'est
+
+constante entier NB_LIGNE := 6;
+constante entier NB_COLONNE := 7;
+
+constante caractère PION_J1 := 'O';
+constante caractère PION_J2 := 'X';
+
+type t_grille : tableau[1..NB_COLONNE[1..NB_LIGNE] de caractère;
+
+fonction creeGrille() délivre t_grille;
+fonction verifVictoire(entF grille : t_grille) délivre entier; //0: pas de victoire/egalite, 1: victoire du joueur 1, 2: victoire du joueur 2, 3: égalité (grille pleine).
+fonction verifColonne(entF colonne : entier) délivre entier; // 0: possible de jouer, 1: colonne pleine, 2: paramètre colonne en dehors de la grille.
+fonction changementJoueur(entF joueur : entier) délivre entier;
+
+procedure afficherRegles();
+procedure afficherGrille(entF grille : t_grille); // Affiche la grille en remplacant les 1 et 2 par les pions repsectivement indiqué dans les constantes PION_J1 et PION_J2.
+procedure afficherFin(entF type_fin : entier); // 1: victoire du joueur 1, 2: victoire du joueur 2, 3: égalité (grille pleine).
+procedure jouer(entF joueur : entier, entF/sortF grille : t_grille); // fait jouer un joueur.
+
+procedure placerPionColonne(entF colonne : entier, entF joueur : entier, entF/sortF grille : t_grille) // Détermine la ligne laquelle doit être placé un pion en fonction de sa colonne puis appel la procedure placerPion()
+procedure placerPion(entF ligne : entier, entF colonne : entier, entF joueur : entier, entF/sortF grille : t_grille); // place un pions dans le tableau
+
+debut 
+    grille : t_grille;
+    joueur : entier;
+    victoire : entier;
+
+    grille := creeGrille();
+    joueur := 1;
+    victoire := verifVictoire(entE grille);
+
+    afficherRegles();
+    afficherGrille(entE grille);
+
+    tant que (victoire == 0) faire
+        jouer(entE joueur, entE/sortE grille);
+        afficherGrille(entE grille);
+        changementJoueur(entE joueur)
+        victoire := verifVictoire(entE grille);
+    finfaire
+
+    afficherFin(entE victoire);
+
+fin
+
+
+
+
+
